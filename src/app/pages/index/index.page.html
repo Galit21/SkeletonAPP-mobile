@@ -1,0 +1,45 @@
+<ion-header class="ion-text-center ion-no-border">
+  <h1>SkeletonAPP</h1>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-text-center">
+    <ion-title class="ion-padding">{{title}}</ion-title>
+  </div>
+  <div>ususario : {{user}}</div>
+  <div class="ion-text-center">
+    <ion-title class="ion-padding">Información Adicional</ion-title>
+    <ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-input label="Nombre" placeholder="Ingrese Nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Apellido"
+            placeholder="Ingrese Apellido"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-select label="Nivel Educación" placeholder="Seleccione Nivel">
+            <ion-select-option value="basica">Basica</ion-select-option>
+            <ion-select-option value="media">Media</ion-select-option>
+            <ion-select-option value="tecnica">Tecnica</ion-select-option>
+            <ion-select-option value="superior">Superior</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Fecha Nacimiento" placeholder=""></ion-input>
+          <ion-button color="light"
+            ><ion-icon name="calendar-outline"></ion-icon
+          ></ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+  </div>
+  <ion-popover [isOpen]="isPopoverOpen">
+    <ng-template>
+      <app-popover-content> <ion-datetime></ion-datetime></app-popover-content>
+    </ng-template>
+  </ion-popover>
+</ion-content>
