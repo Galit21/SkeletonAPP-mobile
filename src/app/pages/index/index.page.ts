@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./index.page.scss'],
 })
 export class IndexPage implements OnInit {
- /* user!: String;
+  name: string = '';
+  /* user!: String;
   title: String = 'Bienvenido!';
 
   constructor(private router: Router) {
