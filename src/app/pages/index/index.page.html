@@ -1,18 +1,22 @@
 <ion-header class="ion-text-center ion-no-border">
   <h1>SkeletonAPP</h1>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <div class="ion-text-center">
     <ion-title class="ion-padding"></ion-title>
   </div>
-  <div>ususario </div>
+  <div class="paddingLeft">Hola {{user}}</div>
+  <br /><br />
   <div class="ion-text-center">
     <ion-title class="ion-padding">Información Adicional</ion-title>
     <ion-list>
       <ion-list>
         <ion-item>
-          <ion-input label="Nombre" placeholder="Ingrese Nombre" [(ngModel)]="name"></ion-input>
+          <ion-input
+            label="Nombre"
+            placeholder="Ingrese Nombre"
+            [(ngModel)]="name"
+          ></ion-input>
         </ion-item>
         <ion-item>
           <ion-input
@@ -30,16 +34,14 @@
         </ion-item>
         <ion-item>
           <ion-input label="Fecha Nacimiento" placeholder=""></ion-input>
-          <ion-button color="light"
-            ><ion-icon name="calendar-outline"></ion-icon
-          ></ion-button>
+          <ion-button color="light" (click)="presentPopover($event)">
+            <ion-icon name="calendar-outline"></ion-icon>
+          </ion-button>
+          <p *ngIf="date">Fecha seleccionada: {{ date }}</p>
         </ion-item>
       </ion-list>
     </ion-list>
   </div>
- <!-- <ion-popover [isOpen]="isPopoverOpen">
-    <ng-template>
-      <app-popover-content> <ion-datetime></ion-datetime></app-popover-content>
-    </ng-template>
-  </ion-popover> -->
+  <div><p>Fecha seleccionada: {{ date }}</p></div>
+
 </ion-content>

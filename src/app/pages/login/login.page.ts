@@ -9,8 +9,8 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
   title: string = 'Bienvendio!';
-  user!: string;
-  password!: string;
+  user: string = '';
+  password: string = '';
   validate: Boolean = false;
 
   constructor(
@@ -18,21 +18,25 @@ export class LoginPage implements OnInit {
     private toastController: ToastController
   ) {}
 
-  ngOnInit() {}
-
-  validateLogin() {
-    if (this.user == 'admin' && this.password == '123') {
+  validateLogin(user: string, password: string) {
+    if (user != '' && password != '') {
       this.validate = true;
-      this.toastMessage('Login correcto');
-      const navigationExtras: NavigationExtras = {
+    } else;
+  }
+
+  login() {
+    this.validateLogin(this.user, this.password);
+
+    if (this.validate == true) {
+      const extras = {
         state: { user: this.user },
       };
-      this.router.navigate(['/index', navigationExtras]);
+      this.router.navigate(['/index'], extras);
     } else {
       this.toastMessage('Login Incorrecto');
-      console.log(this.validate);
     }
   }
+
   async toastMessage(message: string) {
     const toast = await this.toastController.create({
       color: 'primary',
@@ -41,4 +45,6 @@ export class LoginPage implements OnInit {
     });
     toast.present();
   }
+
+  ngOnInit() {}
 }

@@ -8,26 +8,28 @@
     <ion-title class="ion-padding">{{title}}</ion-title>
   </div>
   <div class="ion-text-center">
-    <ion-list class="ion-padding">
-      <ion-item>
-        <ion-input maxlength="8" minlength="3" [(ngModel)]="user"
-          >Usuario</ion-input
-        >
-      </ion-item>
-      <ion-item>
-        <!--<ion-input type="Password" [(ngModel)]="password">Password</ion-input>-->
-      </ion-item>
-    </ion-list>
-    <ion-button
-      expand="block"
-      class="ion-padding"
-      color="light"
-      type="submit"
-      (click)="validateLogin()"
-    >
-      Ingresar</ion-button
-    >
-    <!--<ion-button [routerLink]="['/index']"> Perfil </ion-button>-->
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      <ion-list class="ion-padding">
+        <ion-item>
+          <ion-input maxlength="8" minlength="3" [(ngModel)]="user" name="user"
+            >Usuario</ion-input
+          >
+        </ion-item>
+        <ion-item>
+          <ion-input type="Password" [(ngModel)]="password" name="password"
+            >Password</ion-input
+          >
+        </ion-item>
+      </ion-list>
+      <ion-button
+        expand="block"
+        class="ion-padding"
+        color="light"
+        (click)="login()"
+      >
+        Ingresar</ion-button
+      >
+    </form>
     <br />
     <a href="">Crea tu cuenta gratis</a>
   </div>
